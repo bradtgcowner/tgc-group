@@ -1,305 +1,366 @@
 ```html
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TGC Group | Strategic Brand Development & Crisis PR</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter & Montserrat -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        charcoal: {
-                            900: '#0F0F12',
-                            800: '#16161A',
-                            700: '#1E1E24',
-                            600: '#2A2A32',
-                            500: '#3A3A45'
-                        },
-                        accent: {
-                            light: '#F4F4F6',
-                            silver: '#A1A1AA',
-                            muted: '#71717A',
-                            border: '#27272A'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Montserrat', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <style>
-        body {
-            background-color: #0F0F12;
-            color: #F4F4F6;
-            font-family: 'Inter', sans-serif;
-        }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0F0F12;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #2A2A32;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #3A3A45;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TGC Group - Executive Brand, Crisis PR & SOP Advisory</title>
+  
+  <!-- Google Fonts: Space Grotesk & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- React & ReactDOM CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  
+  <!-- Babel for JSX Compilation -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-        /* Glassmorphism Effect */
-        .glass-panel {
-            background: rgba(30, 30, 36, 0.65);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        
-        .glass-card {
-            background: rgba(22, 22, 26, 0.75);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .glass-card:hover {
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #FFFFFF 0%, #A1A1AA 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Modern subtle grid background */
-        .bg-grid-pattern {
-            background-size: 40px 40px;
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        }
-
-        .active-tab {
-            border-color: #FFFFFF !important;
-            background-color: rgba(255, 255, 255, 0.08) !important;
-            color: #FFFFFF !important;
-        }
-    </style>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-heading {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+  </style>
 </head>
-<body class="bg-charcoal-900 text-accent-light selection:bg-white selection:text-charcoal-900 min-h-screen flex flex-col justify-between">
+<body class="bg-black text-zinc-100 selection:bg-white selection:text-black min-h-screen antialiased">
+  <div id="root"></div>
 
-    <!-- NAVIGATION HEADER -->
-    <header class="fixed top-0 left-0 w-full z-40 glass-panel border-b border-accent-border/50 transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 bg-white text-charcoal-900 font-display font-black text-xl flex items-center justify-center rounded tracking-tighter group-hover:bg-accent-silver transition-colors">
-                    TGC
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-display font-extrabold text-lg tracking-wider text-white">TGC GROUP</span>
-                    <span class="text-[10px] text-accent-silver tracking-widest uppercase font-mono">St. Louis, MO</span>
-                </div>
-            </a>
+  <script type="text/babel">
+    const { useState, useEffect, useMemo } = React;
 
-            <!-- Desktop Nav Links -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
-                <a href="#services" class="text-accent-silver hover:text-white transition-colors">Services</a>
-                <a href="#about" class="text-accent-silver hover:text-white transition-colors">About Firm</a>
-                <a href="#calculator" class="text-accent-silver hover:text-white transition-colors">SOP Scope Calculator</a>
-                <a href="#contact" class="text-accent-silver hover:text-white transition-colors">Contact</a>
-            </nav>
+    // Helper SVG Icon Component wrapper for Lucide Icons
+    const Icon = ({ name, className = "w-4 h-4" }) => {
+      const ref = React.useRef(null);
+      useEffect(() => {
+        if (ref.current && window.lucide) {
+          ref.current.innerHTML = '';
+          const iconNode = window.lucide.createElement(window.lucide.icons[name] || window.lucide.icons['HelpCircle']);
+          ref.current.appendChild(iconNode);
+        }
+      }, [name]);
+      return <span ref={ref} class={`inline-flex items-center justify-center ${className}`}></span>;
+    };
 
-            <!-- CTA & Mobile Toggle -->
-            <div class="flex items-center gap-4">
-                <button onclick="openBookingModal()" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs uppercase tracking-widest font-semibold text-charcoal-900 bg-white hover:bg-accent-silver transition-all duration-200 rounded-sm shadow-lg hover:shadow-white/10">
-                    <i class="fa-solid me-2 fa-calendar-check text-xs"></i> Book Consultation
-                </button>
+    function App() {
+      // Navigation State
+      const [activeTab, setActiveTab] = useState('home');
+      const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-accent-silver hover:text-white p-2 rounded focus:outline-none">
-                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
-                </button>
+      // Booking System State
+      const [bookingModalOpen, setBookingModalOpen] = useState(false);
+      const [bookingStep, setBookingStep] = useState(1);
+      const [bookingData, setBookingData] = useState({
+        serviceCategory: 'crisis',
+        meetingPlatform: 'Zoom',
+        date: '',
+        time: '10:00 AM',
+        timeZone: 'Central Time (CT - St. Louis)',
+        fullName: '',
+        company: '',
+        email: '',
+        phone: '',
+        urgency: 'Standard',
+        briefing: ''
+      });
+      const [bookingConfirmed, setBookingConfirmed] = useState(false);
+      const [generatedMeetingLink, setGeneratedMeetingLink] = useState('');
+
+      // SOP Estimator Calculator State
+      const [sopScope, setSopScope] = useState({
+        departmentCount: 3,
+        processComplexity: 'Medium', // Low, Medium, High
+        type: 'revision', // new, revision, full_overhaul
+        urgency: 'standard'
+      });
+
+      // Toast Notification State
+      const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
+
+      const triggerToast = (message, type = 'success') => {
+        setToast({ show: true, message, type });
+        setTimeout(() => setToast({ show: false, message: '', type: 'success' }), 4000);
+      };
+
+      // Open booking modal with pre-selected service
+      const handleOpenBooking = (serviceCat = 'crisis') => {
+        setBookingData(prev => ({ ...prev, serviceCategory: serviceCat }));
+        setBookingStep(1);
+        setBookingConfirmed(false);
+        setBookingModalOpen(true);
+      };
+
+      // Generate meeting link mockup
+      useEffect(() => {
+        const randomId = Math.random().toString(36).substring(2, 9);
+        if (bookingData.meetingPlatform === 'Zoom') {
+          setGeneratedMeetingLink(`https://tgcgroup.zoom.us/j/98${Math.floor(10000000 + Math.random() * 90000000)}`);
+        } else if (bookingData.meetingPlatform === 'Google Meet') {
+          setGeneratedMeetingLink(`https://meet.google.com/tgc-${randomId}`);
+        } else {
+          setGeneratedMeetingLink(`https://teams.microsoft.com/l/meetup-join/tgc-${randomId}`);
+        }
+      }, [bookingData.meetingPlatform]);
+
+      const handleBookingSubmit = (e) => {
+        e.preventDefault();
+        if (!bookingData.fullName || !bookingData.email || !bookingData.date) {
+          triggerToast('Please complete all required fields.', 'error');
+          return;
+        }
+        setBookingConfirmed(true);
+        triggerToast('Consultation request successfully confirmed! Confirmation sent to email.');
+      };
+
+      // Calculate SOP Timeline & Estimated Investment
+      const calculatedEstimate = useMemo(() => {
+        let baseHours = sopScope.departmentCount * 18;
+        
+        if (sopScope.processComplexity === 'High') baseHours *= 1.5;
+        if (sopScope.processComplexity === 'Low') baseHours *= 0.75;
+
+        if (sopScope.type === 'new') baseHours *= 1.3;
+        if (sopScope.type === 'full_overhaul') baseHours *= 1.6;
+
+        const weeks = Math.max(2, Math.ceil(baseHours / 30));
+        const minEst = Math.round((baseHours * 135) / 100) * 100;
+        const maxEst = Math.round((minEst * 1.25) / 100) * 100;
+
+        return { hours: Math.round(baseHours), weeks, minEst, maxEst };
+      }, [sopScope]);
+
+      return (
+        <div class="min-h-screen bg-black text-zinc-100 selection:bg-white selection:text-black flex flex-col antialiased">
+          
+          {/* Toast Notification */}
+          {toast.show && (
+            <div class={`fixed top-5 right-5 z-50 flex items-center gap-3 px-5 py-4 rounded-none shadow-2xl border transition-all transform duration-300 ${
+              toast.type === 'error' ? 'bg-zinc-900 border-red-500/80 text-red-200' : 'bg-zinc-900 border-zinc-700 text-white'
+            }`}>
+              <Icon name={toast.type === 'error' ? 'AlertTriangle' : 'CheckCircle'} className="w-5 h-5 flex-shrink-0" />
+              <span class="text-xs font-semibold uppercase tracking-wider">{toast.message}</span>
             </div>
-        </div>
+          )}
 
-        <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="hidden md:hidden glass-panel border-b border-accent-border px-4 pt-2 pb-6 space-y-4">
-            <a href="#services" onclick="toggleMobileMenu()" class="block text-accent-silver hover:text-white py-2 border-b border-charcoal-700">Services</a>
-            <a href="#about" onclick="toggleMobileMenu()" class="block text-accent-silver hover:text-white py-2 border-b border-charcoal-700">About Firm</a>
-            <a href="#calculator" onclick="toggleMobileMenu()" class="block text-accent-silver hover:text-white py-2 border-b border-charcoal-700">SOP Scope Calculator</a>
-            <a href="#contact" onclick="toggleMobileMenu()" class="block text-accent-silver hover:text-white py-2 border-b border-charcoal-700">Contact</a>
-            <button onclick="toggleMobileMenu(); openBookingModal();" class="w-full mt-2 py-3 text-xs uppercase tracking-widest font-semibold text-charcoal-900 bg-white text-center rounded-sm">
-                Book Consultation
-            </button>
-        </div>
-    </header>
-
-    <main class="flex-grow pt-20">
-        <!-- HERO SECTION -->
-        <section class="relative min-h-[85vh] flex items-center justify-center bg-grid-pattern px-4 sm:px-6 lg:px-8 overflow-hidden py-16">
-            <!-- Ambient Glow -->
-            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
-
-            <div class="max-w-5xl mx-auto text-center relative z-10">
-                <!-- Location Badge -->
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-charcoal-800 border border-charcoal-600 text-xs text-accent-silver mb-8 tracking-wide">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    Headquartered in St. Louis, Missouri • Serving Global Enterprise
-                </div>
-
-                <!-- Main Tagline -->
-                <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white mb-6 leading-[1.1]">
-                    Precision Strategy. <br class="hidden sm:inline"/>
-                    <span class="gradient-text">Unshakeable Authority.</span>
-                </h1>
-
-                <!-- Brief Intro Copy -->
-                <p class="text-base sm:text-xl text-accent-silver max-w-3xl mx-auto font-light leading-relaxed mb-10">
-                    TGC Group architects bulletproof business architectures, navigates high-stakes corporate PR crises, and designs scale-ready operational SOPs for ambitious brands.
-                </p>
-
-                <!-- Dual CTAs -->
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-                    <button onclick="openBookingModal()" class="w-full sm:w-auto px-8 py-4 bg-white text-charcoal-900 text-xs font-bold uppercase tracking-widest hover:bg-accent-silver transition-all duration-300 rounded-sm shadow-xl flex items-center justify-center gap-3 group">
-                        <span>Schedule Consultation</span>
-                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-                    <a href="#services" class="w-full sm:w-auto px-8 py-4 bg-charcoal-800 border border-charcoal-600 text-white text-xs font-bold uppercase tracking-widest hover:bg-charcoal-700 hover:border-accent-muted transition-all duration-300 rounded-sm text-center">
-                        Explore Services
-                    </a>
-                </div>
-
-                <!-- Quick Metrics Bar -->
-                <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 border-t border-charcoal-800">
-                    <div class="text-center">
-                        <div class="font-display text-3xl font-bold text-white">24/7</div>
-                        <div class="text-xs text-accent-muted tracking-wider uppercase mt-1">Crisis Response Unit</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="font-display text-3xl font-bold text-white">100%</div>
-                        <div class="text-xs text-accent-muted tracking-wider uppercase mt-1">Confidentiality Guarantee</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="font-display text-3xl font-bold text-white">500+</div>
-                        <div class="text-xs text-accent-muted tracking-wider uppercase mt-1">SOP Systems Authored</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="font-display text-3xl font-bold text-white">STL</div>
-                        <div class="text-xs text-accent-muted tracking-wider uppercase mt-1">Missouri Executive Hub</div>
-                    </div>
-                </div>
+          {/* Top Crisis Emergency Bar */}
+          <div class="bg-zinc-950 text-zinc-400 text-xs py-2.5 px-4 border-b border-zinc-900 flex flex-wrap justify-between items-center gap-2 tracking-wider uppercase font-medium">
+            <div class="flex items-center gap-2">
+              <span class="flex h-2 w-2 relative">
+                <span class="animate-ping absolute inline-flex h-full w-full bg-white opacity-75"></span>
+                <span class="relative inline-flex h-2 w-2 bg-white"></span>
+              </span>
+              <span class="font-bold text-zinc-200 tracking-widest text-[11px]">24/7 Corporate Crisis Hotline:</span>
+              <span class="font-mono font-bold text-white text-xs tracking-tight">+1 (314) 555-CRIS (2747)</span>
             </div>
-        </section>
+            <div class="hidden md:flex items-center gap-6 text-[11px] text-zinc-400">
+              <span class="flex items-center gap-1.5"><Icon name="MapPin" className="w-3.5 h-3.5 text-zinc-200" /> St. Louis HQ (Central Time)</span>
+              <button 
+                onClick={() => handleOpenBooking('crisis')} 
+                class="text-white font-bold hover:underline flex items-center gap-1 uppercase tracking-wider"
+              >
+                Immediate Emergency Briefing <Icon name="ArrowRight" className="w-3 h-3" />
+              </button>
+            </div>
+          </div>
 
-        <!-- SERVICES SECTION -->
-        <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-charcoal-800">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+          {/* Main Header / Navigation */}
+          <header class="sticky top-0 z-40 bg-black/95 backdrop-blur-md border-b border-zinc-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+              
+              {/* Logo */}
+              <div 
+                class="flex items-center gap-3 cursor-pointer group"
+                onClick={() => setActiveTab('home')}
+              >
+                <div class="w-10 h-10 bg-white flex items-center justify-center font-bold text-black text-xl tracking-tighter group-hover:bg-zinc-200 transition-colors font-heading">
+                  TGC
+                </div>
                 <div>
-                    <span class="text-xs font-mono tracking-widest uppercase text-accent-silver block mb-2">// Core Capabilities</span>
-                    <h2 class="font-display text-3xl sm:text-5xl font-extrabold uppercase text-white tracking-tight">Our Pillars of Execution</h2>
+                  <div class="text-xl font-bold tracking-wider text-white uppercase flex items-center gap-2 font-heading">
+                    TGC GROUP <span class="text-zinc-300 text-[10px] px-1.5 py-0.5 border border-zinc-800 bg-zinc-950 font-mono tracking-widest">STL</span>
+                  </div>
+                  <p class="text-[9px] text-zinc-500 uppercase tracking-widest font-mono">Crisis PR • Brand • Process SOPs</p>
                 </div>
-                <p class="text-accent-silver max-w-md text-sm mt-4 md:mt-0 leading-relaxed">
-                    Designed for high-growth firms, modern enterprises, and executives facing reputational volatility or operational friction.
-                </p>
+              </div>
+
+              {/* Desktop Nav */}
+              <nav class="hidden md:flex items-center gap-8 font-heading">
+                <button 
+                  onClick={() => setActiveTab('home')}
+                  class={`text-xs font-bold uppercase tracking-widest transition-colors ${activeTab === 'home' ? 'text-white border-b-2 border-white py-1' : 'text-zinc-500 hover:text-white'}`}
+                >
+                  Overview
+                </button>
+                <button 
+                  onClick={() => setActiveTab('services')}
+                  class={`text-xs font-bold uppercase tracking-widest transition-colors ${activeTab === 'services' ? 'text-white border-b-2 border-white py-1' : 'text-zinc-500 hover:text-white'}`}
+                >
+                  Practice Areas
+                </button>
+                <button 
+                  onClick={() => setActiveTab('sop-calculator')}
+                  class={`text-xs font-bold uppercase tracking-widest transition-colors flex items-center gap-1.5 ${activeTab === 'sop-calculator' ? 'text-white border-b-2 border-white py-1' : 'text-zinc-500 hover:text-white'}`}
+                >
+                  <Icon name="Sliders" className="w-3.5 h-3.5 text-zinc-300" />
+                  SOP Audit Estimator
+                </button>
+                <button 
+                  onClick={() => setActiveTab('case-studies')}
+                  class={`text-xs font-bold uppercase tracking-widest transition-colors ${activeTab === 'case-studies' ? 'text-white border-b-2 border-white py-1' : 'text-zinc-500 hover:text-white'}`}
+                >
+                  Track Record
+                </button>
+                <button 
+                  onClick={() => setActiveTab('contact')}
+                  class={`text-xs font-bold uppercase tracking-widest transition-colors ${activeTab === 'contact' ? 'text-white border-b-2 border-white py-1' : 'text-zinc-500 hover:text-white'}`}
+                >
+                  St. Louis HQ
+                </button>
+              </nav>
+
+              {/* Book Action Button */}
+              <div class="hidden md:flex items-center gap-3 font-heading">
+                <button
+                  onClick={() => handleOpenBooking('general')}
+                  class="px-5 py-2.5 bg-white hover:bg-zinc-200 text-black font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 rounded-none border border-white"
+                >
+                  <Icon name="Video" className="w-4 h-4" />
+                  Book Video Consultation
+                </button>
+              </div>
+
+              {/* Mobile Menu Toggle */}
+              <button 
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                class="md:hidden p-2 rounded-none bg-zinc-950 text-zinc-300 hover:text-white border border-zinc-800"
+              >
+                <Icon name={mobileMenuOpen ? "X" : "Menu"} className="w-6 h-6" />
+              </button>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Service 1: Crisis PR -->
-                <div class="glass-card p-8 rounded-sm relative flex flex-col justify-between group">
-                    <div>
-                        <div class="w-14 h-14 bg-charcoal-800 border border-charcoal-600 rounded-sm flex items-center justify-center text-white text-2xl mb-8 group-hover:border-white transition-colors">
-                            <i class="fa-solid fa-shield-halved"></i>
-                        </div>
-                        <span class="text-[10px] font-mono tracking-widest uppercase text-accent-silver">Pillar 01</span>
-                        <h3 class="font-display text-xl font-bold text-white uppercase mt-2 mb-4">Crisis PR & Reputation Management</h3>
-                        <p class="text-sm text-accent-silver leading-relaxed font-light mb-6">
-                            High-stakes corporate crisis response, proactive brand protection, and rapid mitigation. We engineer strategic media narratives, provide real-time public sentiment control, and train executives to navigate high-pressure media scrutiny with composure and precision.
-                        </p>
-                        <ul class="space-y-2 text-xs text-accent-silver border-t border-charcoal-700/60 pt-6 mb-8">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-white text-[10px]"></i> Emergency Narrative Containment</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-white text-[10px]"></i> C-Suite Media Preparation & Spokesperson Training</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-white text-[10px]"></i> SEO Cleanups & Digital Footprint Audits</li>
-                        </ul>
-                    </div>
-                    <button onclick="openBookingModal('Crisis Management Strategy Session')" class="w-full py-3 bg-charcoal-800 border border-charcoal-600 text-xs font-semibold uppercase tracking-wider text-white hover:bg-white hover:text-charcoal-900 transition-all rounded-sm">
-                        Book Strategy Session
-                    </button>
+            {/* Mobile Navigation Menu */}
+            {mobileMenuOpen && (
+              <div class="md:hidden bg-zinc-950 border-b border-zinc-800 px-4 pt-3 pb-6 space-y-3 font-mono text-xs uppercase tracking-wider">
+                <button onClick={() => { setActiveTab('home'); setMobileMenuOpen(false); }} class="block w-full text-left py-2 text-zinc-300 hover:text-white font-bold">Overview</button>
+                <button onClick={() => { setActiveTab('services'); setMobileMenuOpen(false); }} class="block w-full text-left py-2 text-zinc-300 hover:text-white font-bold">Practice Areas & Services</button>
+                <button onClick={() => { setActiveTab('sop-calculator'); setMobileMenuOpen(false); }} class="block w-full text-left py-2 text-zinc-300 hover:text-white font-bold flex items-center gap-2">
+                  <Icon name="Sliders" className="w-4 h-4 text-zinc-300" /> SOP Audit Estimator
+                </button>
+                <button onClick={() => { setActiveTab('case-studies'); setMobileMenuOpen(false); }} class="block w-full text-left py-2 text-zinc-300 hover:text-white font-bold">Track Record & Wins</button>
+                <button onClick={() => { setActiveTab('contact'); setMobileMenuOpen(false); }} class="block w-full text-left py-2 text-zinc-300 hover:text-white font-bold">St. Louis HQ & Contact</button>
+                <div class="pt-2">
+                  <button onClick={() => { setMobileMenuOpen(false); handleOpenBooking('general'); }} class="w-full py-3 bg-white text-black font-bold text-center flex items-center justify-center gap-2 uppercase tracking-wider font-heading">
+                    <Icon name="Video" className="w-4 h-4" /> Book Video Consultation
+                  </button>
                 </div>
+              </div>
+            )}
+          </header>
 
-                <!-- Service 2: Brand Management -->
-                <div class="glass-card p-8 rounded-sm relative flex flex-col justify-between group">
-                    <div>
-                        <div class="w-14 h-14 bg-charcoal-800 border border-charcoal-600 rounded-sm flex items-center justify-center text-white text-2xl mb-8 group-hover:border-white transition-colors">
-                            <i class="fa-solid fa-chess-king"></i>
+          {/* MAIN BODY CONTENT */}
+          <main class="flex-grow">
+            
+            {/* TAB 1: HOME / OVERVIEW */}
+            {activeTab === 'home' && (
+              <div class="space-y-24 pb-20">
+                
+                {/* Executive Hero */}
+                <section class="relative overflow-hidden pt-12 pb-20 lg:pt-24 lg:pb-28 border-b border-zinc-900">
+                  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="grid lg:grid-cols-12 gap-12 items-center">
+                      
+                      <div class="lg:col-span-7 space-y-8">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-zinc-950 border border-zinc-800 text-zinc-400 text-xs font-mono uppercase tracking-widest">
+                          <Icon name="Building2" className="w-3.5 h-3.5 text-white" />
+                          St. Louis Executive Advisory & PR Governance
                         </div>
-                        <span class="text-[10px] font-mono tracking-widest uppercase text-accent-silver">Pillar 02</span>
-                        <h3 class="font-display text-xl font-bold text-white uppercase mt-2 mb-4">Strategic Brand Management & Development</h3>
-                        <p class="text-sm text-accent-silver leading-relaxed font-light mb-6">
-                            Brand identity architecture, market positioning strategy, and long-term equity growth. We create distinctive brand systems that command market authority, define competitive moats, and facilitate seamless market entry or comprehensive brand repositioning.
-                        </p>
-                        <ul class="space-y-2 text-xs text-accent-silver border-t border-charcoal-700/60 pt-6 mb-8">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-white text-[10px]"></i> Enterprise Brand Architecture & Identity</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-white text-[10px]"></i> Market Positioning & Competitive Moating</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-white text-[10px]"></i> Corporate Value Proposition & Messaging</li>
-                        </ul>
-                    </div>
-                    <button onclick="openBookingModal('Initial Discovery Call')" class="w-full py-3 bg-charcoal-800 border border-charcoal-600 text-xs font-semibold uppercase tracking-wider text-white hover:bg-white hover:text-charcoal-900 transition-all rounded-sm">
-                        Book Discovery Call
-                    </button>
-                </div>
 
-                <!-- Service 3: SOPs & Business Process Engineering -->
-                <div class="glass-card p-8 rounded-sm relative flex flex-col justify-between group">
-                    <div>
-                        <div class="w-14 h-14 bg-charcoal-800 border border-charcoal-600 rounded-sm flex items-center justify-center text-white text-2xl mb-8 group-hover:border-white transition-colors">
-                            <i class="fa-solid fa-diagram-project"></i>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.05] uppercase font-heading">
+                          Navigating Complexity. <br />
+                          <span class="text-zinc-500">
+                            Architecting Resilience.
+                          </span> <br />
+                          Elevating Brands.
+                        </h1>
+
+                        <p class="text-base text-zinc-400 max-w-2xl leading-relaxed font-normal">
+                          TGC Group provides C-suite executives, high-growth enterprises, and institutions with high-stakes crisis PR management, brand positioning architecture, and precision business process & SOP engineering.
+                        </p>
+
+                        <div class="pt-2 flex flex-wrap gap-4 items-center font-heading">
+                          <button
+                            onClick={() => handleOpenBooking('crisis')}
+                            class="px-7 py-4 bg-white hover:bg-zinc-200 text-black font-bold text-xs uppercase tracking-widest shadow-2xl flex items-center gap-2 transition-transform active:scale-98 border border-white"
+                          >
+                            <Icon name="Calendar" className="w-4 h-4" />
+                            Schedule Video Consultation
+                          </button>
+
+                          <button
+                            onClick={() => setActiveTab('services')}
+                            class="px-7 py-4 bg-zinc-950 hover:bg-zinc-900 text-zinc-200 border border-zinc-800 font-bold text-xs uppercase tracking-widest transition-colors flex items-center gap-2"
+                          >
+                            Explore Core Pillars
+                            <Icon name="ChevronRight" className="w-4 h-4 text-zinc-400" />
+                          </button>
                         </div>
-                        <span class="text-[10px] font-mono tracking-widest uppercase text-accent-silver">Pillar 03</span>
-                        <h3 class="font-display text-xl font-bold text-white uppercase mt-2 mb-4">SOPs & Business Process Engineering</h3>
-                        <p class="text-sm text-accent-silver leading-relaxed font-light mb-6">
-                            End-to-end operational design, Standard Operating Procedure (SOP) authoring, and workflow optimization. Whether drafting framework documentation for high-growth startups or overhauling legacy systems for enterprise revisions, we install operational clarity.
-                        </p>
-                        <ul class="space-y-2 text-xs text-accent-silver border-t border-charcoal-700/60 pt-6 mb-8">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-white text-[10px]"></i> Startup Process Blueprints & Standard Documentation</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-white text-[10px]"></i> Legacy Enterprise SOP Audits & Revisions</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-white text-[10px]"></i> Scalable Operational Workflows & Quality Assurance</li>
-                        </ul>
-                    </div>
-                    <button onclick="openBookingModal('SOP & Process Audit')" class="w-full py-3 bg-charcoal-800 border border-charcoal-600 text-xs font-semibold uppercase tracking-wider text-white hover:bg-white hover:text-charcoal-900 transition-all rounded-sm">
-                        Request SOP Audit
-                    </button>
-                </div>
-            </div>
-        </section>
 
-        <!-- ABOUT FIRM & METHODOLOGY -->
-        <section id="about" class="py-20 bg-charcoal-800/40 border-y border-charcoal-800 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <span class="text-xs font-mono tracking-widest uppercase text-accent-silver block mb-2">// St. Louis Executive Headquarters</span>
-                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold uppercase text-white tracking-tight mb-6">Built for Strategic Clarity and Tactical Precision</h2>
-                    <p class="text-accent-silver text-sm leading-relaxed mb-6 font-light">
-                        At <strong class="text-white font-medium">TGC Group</strong>, we believe that brand value is forged in two places: how effectively you communicate under pressure, and how flawlessly you execute behind closed doors.
-                    </p>
-                    <p class="text-accent-silver text-sm leading-relaxed mb-8 font-light">
-                        Operating from St. Louis, Missouri, our firm serves as an outsourced strategic command center for leadership teams nationwid
+                        {/* Trust Proof Badges */}
+                        <div class="pt-8 border-t border-zinc-900 grid grid-cols-3 gap-6">
+                          <div>
+                            <p class="text-3xl font-bold text-white tracking-tight font-heading">98.4%</p>
+                            <p class="text-[11px] text-zinc-500 uppercase tracking-wider font-mono mt-1">Crisis Containment</p>
+                          </div>
+                          <div>
+                            <p class="text-3xl font-bold text-white tracking-tight font-heading">$400M+</p>
+                            <p class="text-[11px] text-zinc-500 uppercase tracking-wider font-mono mt-1">Value Protected</p>
+                          </div>
+                          <div>
+                            <p class="text-3xl font-bold text-white tracking-tight font-heading">350+</p>
+                            <p class="text-[11px] text-zinc-500 uppercase tracking-wider font-mono mt-1">SOP Manuals Built</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Right Card: Virtual Meeting Preview */}
+                      <div class="lg:col-span-5">
+                        <div class="bg-zinc-950 border border-zinc-800 p-6 shadow-2xl relative">
+                          <div class="flex items-center justify-between pb-4 border-b border-zinc-800 mb-6 font-mono text-xs text-zinc-500 tracking-wider">
+                            <div class="flex items-center gap-1.5">
+                              <div class="w-2.5 h-2.5 bg-zinc-700"></div>
+                              <div class="w-2.5 h-2.5 bg-zinc-700"></div>
+                              <div class="w-2.5 h-2.5 bg-zinc-700"></div>
+                            </div>
+                            <span>DESK // STL-HQ-VIRTUAL</span>
+                          </div>
+
+                          <div class="space-y-4">
+                            <div class="p-4 bg-black border border-zinc-800 flex items-start gap-4">
+                              <div class="p-3 bg-zinc-900 text-white border border-zinc-800">
+                                <Icon name="ShieldAlert" className="w-5 h-5" />
+                              </div>
+                              <div>
+                                <h4 class="text-xs font-bold text-white uppercase tracking-wider font-heading">Crisis PR & Reputation Response</h4>
+                                <p class="text-xs text-zinc-400 mt-1 leading-relaxed">24/7 Media triage, executive communications, statement crafting, and corporate risk mitigation.</p>
+                              </div>
+                            </div>
+
+                            <div class="p-4 bg-black border border-zinc-800 flex items-start gap-4">
+                              <div class="p-3 bg-zinc-900 text-white border border-zinc-800">
+                                <Icon name="Award" className="w-5 h-5" />
+                              </div>
+                              <div>
+                                <h4 class="text-xs font-bold text-white uppercase tracking-wider font-heading">Brand Advisory & Development</h4>
+                                <p class="text-xs text-zinc-400 mt-1 leading-relaxed">Strategic repositioning, brand governance, messaging platforms, and executive presence.</p>
+                              </div>
+                            </div>
